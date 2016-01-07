@@ -24,34 +24,75 @@
 		</nav>
 
 		<div class="filter">
-			<header> Song Length: </header>
-			<input type="range">
+			<form action="#">
+			  <div class="filter--item">
+				<header> Song Length: </header>
+				  <input type="range">
+			  </div>
+			  <div class="filter--item">
+			    <header> Artist: </header>
+				  <input list="artist" name="artist">
+				  <datalist id="artist">
+				    <option value="Artist 1"></option>
+				    <option value="Artist 2"></option>
+				    <option value="Artist 3"></option>
+				  </datalist>
+			  </div>
+			  <div class="filter--item">
+			    <header> Album: </header>
+				  <input list="album" name="album">
+				  <datalist id="album">
+				    <option value="Album 1"></option>
+				    <option value="Album 2"></option>
+				    <option value="Album 3"></option>
+				  </datalist>
+			  </div>
+			  <div class="filter--item">
+			  	<header> Genre: </header>
+			  	  <div class="genre--row">
+					  <input type="checkbox" name="genre" value="Rock" />Rock 
+					  <input type="checkbox" name="genre" value="Jazz" />Jazz 
+				  </div>
+				  <div class="genre--row">
+					  <input type="checkbox" name="genre" value="Rock" />Rock 
+					  <input type="checkbox" name="genre" value="Rock" />Rock 
+				  </div>
+				  <input type="checkbox" name="genre" value="Rock" />Rock 
+				  <input type="checkbox" name="genre" value="Rock" />Rock 
+			  </div>
+			  <div class="filter--item">
+				  <button class="filter--button">
+					<h5>Filter</h5>
+				  </button>
+			  </div>
+			</form>
+			  
 		</div>
 
 		<div class="songs">
-			<div class="song1">
+			<div class="song">
 				<header>Song</header>
 				<h6></h6>
 			</div>
-			<div class="song2">
+			<div class="song">
 				<header>Song</header>
 				<h6></h6>
 			</div>
-			<div class="song3">
+			<div class="song">
 				<header>Song</header>
 				<h6></h6>
 			</div>
-			<div class="song4">
+			<div class="song">
 				<header>Song</header>
 				<h6></h6>
 			</div>
-			<div class="song5">
+			<div class="song">
 				<header>Song</header>
 				<h6></h6>
 			</div>
 		</div>
 
-		
+
 	</div>
 
 </body>

@@ -1,5 +1,7 @@
 body {
 	font-family: Arial;
+	padding: 0;
+	margin: 0;
 }
 
 .wrapper {
@@ -32,7 +34,26 @@ body {
 	width: 28%;
 }
 
+.filter--button{
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+	float: none;
+	border-radius: 10px;
+	background-color: #eee;
+}
+
+.filter--item{
+	margin-bottom: 7%;
+}
+
+.song {
+	font-size: 1.2em;
+
+}
+
 .songs {
+	color: #785616;
 	float: right;
 	padding: 1%;
 	background-color: #FEFAC0;
