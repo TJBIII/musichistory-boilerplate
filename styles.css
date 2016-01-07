@@ -1,19 +1,17 @@
 body {
 	font-family: Arial;
-	width: 90%;
-	margin: auto;
 }
 
 .wrapper {
-	margin: 0 2.5%;
+	margin: 0 6%;
 }
 .nav {
 	background-color: #FFB4B0;
 	border: 2px solid black;
 	height: 4em;
 	vertical-align: middle;
-	margin: 5% 0;
-
+	margin-top: 5%;
+	margin-bottom: 2%;
 }
 
 .nav  li {
@@ -31,6 +29,13 @@ body {
 	padding: 1%;
 	float: left;
 	border: 2px solid black;
-	width: 25%;
+	width: 28%;
 }
 
+.songs {
+	float: right;
+	padding: 1%;
+	background-color: #FEFAC0;
+	border: 2px solid black;
+	width: 65%;
+}
