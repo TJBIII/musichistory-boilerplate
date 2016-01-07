@@ -38,12 +38,13 @@ body {
 
 ul.song--info {
 	margin-left: 0;
+  height: 2em;
+  padding: 0;
 }
 
 .song--info li {
 	float: left;
 	list-style-type: none;
-  padding: 0;
 }
 
 .view--music ~ li {
