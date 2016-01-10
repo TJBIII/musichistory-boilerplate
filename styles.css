@@ -7,6 +7,12 @@ body {
 .wrapper {
 	margin: 0 6%;
 }
+
+.row {
+  height: 500px;
+}
+
+
 .nav {
 	background-color: #FFB4B0;
 	border: 2px solid black;
@@ -27,7 +33,9 @@ body {
 	padding: 4%;
 	background-color: #FEFAC0;
 	border: 2px solid black;
-	width: 60%;
+	width: 70%;
+  height: 500px;
+  box-sizing: border-box;
 }
 
 
@@ -68,6 +76,8 @@ ul.song--info {
 	float: left;
 	border: 2px solid black;
 	width: 28%;
+  height:500px;
+  box-sizing: border-box
 }
 
 .filter--button{
@@ -84,7 +94,7 @@ ul.song--info {
 }
 
 .filter--item{
-	margin-bottom: 7%;
+	margin: 10% 2%;
 }
 
 .genre--col--left {
@@ -98,4 +108,5 @@ ul.song--info {
 	width: 45%;
 	margin: 2.5%;
 }
+
 

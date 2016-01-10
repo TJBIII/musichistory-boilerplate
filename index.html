@@ -23,101 +23,102 @@
 			</ul>
 		</nav>
 
-		<div class="filter">
-			<form action="#">
-			  <div class="filter--item">
-				<header> Song Length: </header>
-				  <input type="range">
-			  </div>
-			  <div class="filter--item">
-			    <header> Artist: </header>
-				  <input list="artist" name="artist">
-				  <datalist id="artist">
-				    <option value="Artist 1">Artist 1</option>
-				    <option value="Artist 2"></option>
-				    <option value="Artist 3"></option>
-				  </datalist>
-			  </div>
-			  <div class="filter--item">
-			    <header> Album: </header>
-				  <input list="album" name="album">
-				  <datalist id="album">
-				    <option value="Album 1"></option>
-				    <option value="Album 2"></option>
-				    <option value="Album 3"></option>
-				  </datalist>
-			  </div>
-			  <div class="filter--item">
-			  	<header> Genre: </header>
-			  	<div class="genre--col--left">
-					  <input type="checkbox" name="genre" value="Rock" />Rock </br>
-					  <input type="checkbox" name="genre" value="Jazz" />Jazz </br>
-				  	  <input type="checkbox" name="genre" value="Rock" />Blues </br>
-				  </div>
-				  <div class="genre--col--right">
-					  <input type="checkbox" name="genre" value="Rock" />Hip-Hop </br>
-					  <input type="checkbox" name="genre" value="Rock" />Pop</br>
-					  <input type="checkbox" name="genre" value="Rock" />Classical</br> 
-				  </div>
-			  </div>
-			  <div class="filter--item">
-				  <button class="filter--button">
-					<h5>Filter</h5>
-				  </button>
-			  </div>
-			</form>	  
-		</div>
+    <div class="row">
+  		<div class="filter">
+  			<form action="#">
+  			  <div class="filter--item">
+  				<label for="song-list">Song length:</label><br>
+  				  <input type="range" name="song-list">
+  			  </div>
+  			  <div class="filter--item">
+  			    <label for="artist">Artist:</label><br>
+  				  <input list="artist" name="artist">
+  				  <datalist id="artist">
+  				    <option value="Artist 1"></option>
+  				    <option value="Artist 2"></option>
+  				    <option value="Artist 3"></option>
+  				  </datalist>
+  			  </div>
+  			  <div class="filter--item">
+  			    <label for="album">Album:</label><br>
+  				  <input list="album" name="album">
+  				  <datalist id="album">
+  				    <option value="Album 1"></option>
+  				    <option value="Album 2"></option>
+  				    <option value="Album 3"></option>
+  				  </datalist>
+  			  </div>
+  			  <div class="filter--item">
+  			  	<label for="genre">Genre:</label><br>
+  			  	<div class="genre--col--left">
+  					  <input type="checkbox" name="rock" value="Rock" />Rock </br>
+  					  <input type="checkbox" name="jazz" value="Jazz" />Jazz </br>
+  				  	  <input type="checkbox" name="blues" value="Rock" />Blues </br>
+  				  </div>
+  				  <div class="genre--col--right">
+  					  <input type="checkbox" name="hiphop" value="Rock" />Hip-Hop </br>
+  					  <input type="checkbox" name="pop" value="Rock" />Pop</br>
+  					  <input type="checkbox" name="classical" value="Rock" />Classical</br> 
+  				  </div>
+  			  </div>
+  			  <div class="filter--item">
+  				  <button class="filter--button">
+  					<h5>Filter</h5>
+  				  </button>
+  			  </div>
+  			</form>	  
+  		</div>
 
 
-		<div class="songs">
-			<div class="song">
-				<header>Song</header>
-				<ul class="song--info">
-					<li class="artist--name">Arist name</li>
-					<li>Album name</li>
-					<li>Genre</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-			<div class="song">
-				<header>Song</header>
-				<ul class="song--info">
-					<li class="artist--name">Arist name</li>
-					<li>Album name</li>
-					<li>Genre</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-			<div class="song">
-				<header>Song</header>
-				<ul class="song--info">
-					<li class="artist--name">Arist name</li>
-					<li>Album name</li>
-					<li>Genre</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-			<div class="song">
-				<header>Song</header>
-				<ul class="song--info">
-					<li class="artist--name">Arist name</li>
-					<li>Album name</li>
-					<li>Genre</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-			<div class="song">
-				<header>Song</header>
-				<ul class="song--info">
-					<li class="artist--name">Arist name</li>
-					<li>Album name</li>
-					<li>Genre</li>
-				</ul>
-			</div>
-		</div>
+  		<div class="songs">
+  			<div class="song">
+  				<header>Song</header>
+  				<ul class="song--info">
+  					<li class="artist--name">Arist name</li>
+  					<li>Album name</li>
+  					<li>Genre</li>
+  				</ul>
+  			</div>
+  			<div class="clear"></div>
+  			<div class="song">
+  				<header>Song</header>
+  				<ul class="song--info">
+  					<li class="artist--name">Arist name</li>
+  					<li>Album name</li>
+  					<li>Genre</li>
+  				</ul>
+  			</div>
+  			<div class="clear"></div>
+  			<div class="song">
+  				<header>Song</header>
+  				<ul class="song--info">
+  					<li class="artist--name">Arist name</li>
+  					<li>Album name</li>
+  					<li>Genre</li>
+  				</ul>
+  			</div>
+  			<div class="clear"></div>
+  			<div class="song">
+  				<header>Song</header>
+  				<ul class="song--info">
+  					<li class="artist--name">Arist name</li>
+  					<li>Album name</li>
+  					<li>Genre</li>
+  				</ul>
+  			</div>
+  			<div class="clear"></div>
+  			<div class="song">
+  				<header>Song</header>
+  				<ul class="song--info">
+  					<li class="artist--name">Arist name</li>
+  					<li>Album name</li>
+  					<li>Genre</li>
+  				</ul>
+  			</div>
+  		</div> <!-- end of songs -->
+    </div>  <!-- end of row -->
 
-
-	</div>
+	</div> <!-- end of wrapper -->
 
 </body>
 </html>
