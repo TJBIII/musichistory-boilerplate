@@ -14,9 +14,10 @@ console.log("songs", songs);
 var songHTML = "";
 
 for (var i = 0; i < songs.length; i++){
-  songs[i] = songs[i].replace(/>/g, "-");
-  songs[i] = songs[i].replace(/[^a-zA-Z\-\d\s]/g, "");
-  currentSong = songs[i].split("-");
+  var currentSong = songs[i];
+  currentSong = currentSong.replace(/>/g, "-");
+  currentSong = currentSong.replace(/[^a-zA-Z\-\d\s]/g, "");
+  currentSong = currentSong.split("-");
   songHTML += '<div class="song"><header>' + currentSong[0] +'</header>';
   songHTML += '<p>' + currentSong[1] + '</p>';
 }
