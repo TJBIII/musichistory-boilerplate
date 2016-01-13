@@ -16,10 +16,10 @@ var songHTML = "";
 for (var i = 0; i < songs.length; i++){
   songs[i] = songs[i].replace(/>/g, "-");
   songs[i] = songs[i].replace(/[^a-zA-Z\-\d\s]/g, "");
-  songHTML += songs[i] + "<br/>";
+  currentSong = songs[i].split("-");
+  songHTML += '<div class="song"><header>' + currentSong[0] +'</header>';
+  songHTML += '<p>' + currentSong[1] + '</p>';
 }
 
 console.log("songs", songs);
-
-
-document.getElementById('main--content').innerHTML = songHTML;
+document.getElementById('main--content').innerHTML = songHTML; 
