@@ -32,7 +32,7 @@ songEl = document.getElementById('song-name');
 artistEl = document.getElementById('artist-name');
 albumEl = document.getElementById('album-name');
 
-
+//Add song to list view when button is clicked
 addBtnEl.addEventListener('click', function() {
   songTitle = songEl.value;
   artistTitle = artistEl.value;
@@ -42,13 +42,15 @@ addBtnEl.addEventListener('click', function() {
 });
 
 
+//build up new song HTMl and add to innerHTML of main--content area
 var songAdditionHTML;
+
 function addSong(song, artist, album) {
 
   songAdditionHTML = `<div class="song"><header>${song}</header><p>by ${artist} on the album ${album}</p>`;
 
   document.getElementById('main--content').innerHTML += songAdditionHTML;
-  
+
   songEl.value = "";
   artistEl.value = "";
   albumEl.value = "";
