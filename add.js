@@ -28,11 +28,15 @@ var songTitle;
 var artistTitle;
 var AlbumTitle;
 
+songEl = document.getElementById('song-name');
+artistEl = document.getElementById('artist-name');
+albumEl = document.getElementById('album-name');
+
 
 addBtnEl.addEventListener('click', function() {
-  songTitle = document.getElementById('song-name').value;
-  artistTitle = document.getElementById('artist-name').value;
-  albumTitle = document.getElementById('album-name').value;
+  songTitle = songEl.value;
+  artistTitle = artistEl.value;
+  albumTitle = albumEl.value;
 
   addSong(songTitle, artistTitle, albumTitle);
 });
@@ -44,8 +48,10 @@ function addSong(song, artist, album) {
   songAdditionHTML = `<div class="song"><header>${song}</header><p>by ${artist} on the album ${album}</p>`;
 
   document.getElementById('main--content').innerHTML += songAdditionHTML;
+  
+  songEl.value = "";
+  artistEl.value = "";
+  albumEl.value = "";
 
-  alert("Your song has been added");
-
-
+  linkView.click();
 }
