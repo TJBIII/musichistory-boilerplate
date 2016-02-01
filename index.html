@@ -12,10 +12,10 @@
 		<nav class="nav">
 			<ul>
 				<li class="view--music">
-					View Music
+					<a href="#" id="link--view">View Music</a>
 				</li>
 				<li>
-					<a href="#">Add Music</a>
+					<a href="#" id="link--add">Add Music</a>
 				</li>
 				<li>
 					<a href="#">Profile</a>
@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 
-    <div class="row">
+    <div class="row" id="list--music">
   		<div class="filter">
   			<form action="#">
   			  <div class="filter--item">
@@ -76,9 +76,22 @@
   		</div> <!-- end of songs -->
     </div>  <!-- end of row -->
 
+
+
+    <div id="add--music" class="hidden">
+      <label for="song-name">Song</label>
+      <input type="text" name="song-name" id="song-name" />  
+      <label for="artist-name">Artist</label>
+      <input type="text" name="artist-name" id="artist-name" />   
+      <label for="album-name">Album</label>
+      <input type="text" name="album-name" id="album-name" />
+      <button id="add--btn">Add</button>
+    </div>
+
 	</div> <!-- end of wrapper -->
 
   <script src="songs.js"></script>
+  <script src="add.js"></script>
 
 </body>
 </html>

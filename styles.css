@@ -38,8 +38,6 @@ body {
   box-sizing: border-box;
 }
 
-
-
 .song header {
 	font-size: 1.2em;
 }
@@ -110,3 +108,14 @@ ul.song--info {
 }
 
 
+#add--music {
+	margin:100px;
+}
+
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
