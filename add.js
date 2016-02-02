@@ -60,7 +60,7 @@ function addSong(song, artist, album) {
 
   songAdditionHTML = `<div class="song fade-in one"><header>${song}</header><p>by ${artist} on the album ${album}</p>`;
 
-  document.getElementById('main--content').innerHTML += songAdditionHTML;
+  document.getElementById('songs').innerHTML += songAdditionHTML;
 
   songEl.value = "";
   artistEl.value = "";

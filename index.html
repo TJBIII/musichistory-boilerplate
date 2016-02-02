@@ -6,7 +6,6 @@
   <title>Music History</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -53,12 +52,12 @@
           <div class="row">
     			  <div class="filter--item">
     			  	<label for="genre">Genre:</label><br>
-    			  	<div class="col-md-6 genre--col--left">
+    			  	<div class="col-md-6">
     					  <input type="checkbox" name="rock" value="Rock" />Rock </br>
     					  <input type="checkbox" name="jazz" value="Jazz" />Jazz </br>
     				  	  <input type="checkbox" name="blues" value="Rock" />Blues </br>
     				  </div>
-    				  <div class="col-md genre--col--right">
+    				  <div class="col-md-6">
     					  <input type="checkbox" name="hiphop" value="Rock" />Hip-Hop </br>
     					  <input type="checkbox" name="pop" value="Rock" />Pop</br>
     					  <input type="checkbox" name="classical" value="Rock" />Classical</br> 
@@ -67,7 +66,7 @@
           </div> <!-- end of row -->
 
   			  <div class="filter--item">
-  				  <button type="button" id="filter--btn" class="btn btn-default">Filter <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+  				  <button type="button" id="filter--btn" class="btn btn-default btn-lg">Filter <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
   			  </div>
   			</form>	  
   		</div>
@@ -75,7 +74,7 @@
       <div class="col-md-1"></div>
 
   		<div class="col-md-6">
-        <div id="main--content">
+        <div id="songs">
         </div>
   		</div> <!-- end of songs -->
     </div>  <!-- end of row -->
@@ -99,7 +98,7 @@
           <span class="input-group-addon" id="sizing-addon1">Album:</span>
           <input type="text" class="form-control" id="album-name" aria-describedby="sizing-addon1">
         </div>
-        <button type="button" id="add--btn" class="btn btn-default">Add Song <span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
+        <button type="button" id="add--btn" class="btn btn-default btn-lg ">Add Song <span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
       </div>
     </div> <!-- end of row -->
 
