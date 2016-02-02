@@ -4,27 +4,27 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
- 	<div class="wrapper">
-		<nav class="nav">
-			<ul>
-				<li class="view--music">
-					<a href="#" id="link--view">View Music</a>
-				</li>
-				<li>
-					<a href="#" id="link--add">Add Music</a>
-				</li>
-				<li>
-					<a href="#">Profile</a>
-				</li>
-			</ul>
-		</nav>
 
-    <div class="row" id="list--music">
-  		<div class="filter">
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#" id="link--view">View Music</a></li>
+    <li role="presentation"><a href="#" id="link--add">Add Music</a></li>
+    <li role="presentation"><a href="#">Link 3</a></li>
+  </ul>
+
+  <div id="list--music">
+    <div class="row">
+      <div class="page-header col-md-8 col-md-offset-2">
+        <h1>View Music</h1>
+      </div>
+    </div>
+    <div class="row">
+  		<div class="col-md-3 col-md-offset-2">
   			<form action="#">
   			  <div class="filter--item">
   				<label for="song-list">Song length:</label><br>
@@ -48,48 +48,66 @@
   				    <option value="Album 3"></option>
   				  </datalist>
   			  </div>
+
+          <div class="row">
+    			  <div class="filter--item">
+    			  	<label for="genre">Genre:</label><br>
+    			  	<div class="col-md-6">
+    					  <input type="checkbox" name="rock" value="Rock" />Rock </br>
+    					  <input type="checkbox" name="jazz" value="Jazz" />Jazz </br>
+    				  	  <input type="checkbox" name="blues" value="Rock" />Blues </br>
+    				  </div>
+    				  <div class="col-md-6">
+    					  <input type="checkbox" name="hiphop" value="Rock" />Hip-Hop </br>
+    					  <input type="checkbox" name="pop" value="Rock" />Pop</br>
+    					  <input type="checkbox" name="classical" value="Rock" />Classical</br> 
+    				  </div>
+    			  </div>
+          </div> <!-- end of row -->
+
   			  <div class="filter--item">
-  			  	<label for="genre">Genre:</label><br>
-  			  	<div class="genre--col--left">
-  					  <input type="checkbox" name="rock" value="Rock" />Rock </br>
-  					  <input type="checkbox" name="jazz" value="Jazz" />Jazz </br>
-  				  	  <input type="checkbox" name="blues" value="Rock" />Blues </br>
-  				  </div>
-  				  <div class="genre--col--right">
-  					  <input type="checkbox" name="hiphop" value="Rock" />Hip-Hop </br>
-  					  <input type="checkbox" name="pop" value="Rock" />Pop</br>
-  					  <input type="checkbox" name="classical" value="Rock" />Classical</br> 
-  				  </div>
-  			  </div>
-  			  <div class="filter--item">
-  				  <button class="filter--button">
-  					<h5>Filter</h5>
-  				  </button>
+  				  <button type="button" id="filter--btn" class="btn btn-default btn-lg">Filter <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
   			  </div>
   			</form>	  
   		</div>
 
+      <div class="col-md-1"></div>
 
-  		<div class="songs">
-        <div id="main--content">
+  		<div class="col-md-6">
+        <div id="songs">
         </div>
   		</div> <!-- end of songs -->
     </div>  <!-- end of row -->
-
-
-
-    <div id="add--music" class="hidden">
-      <label for="song-name">Song</label>
-      <input type="text" name="song-name" id="song-name" />  
-      <label for="artist-name">Artist</label>
-      <input type="text" name="artist-name" id="artist-name" />   
-      <label for="album-name">Album</label>
-      <input type="text" name="album-name" id="album-name" />
-      <button id="add--btn">Add</button>
     </div>
+
+
+    <div class="row hidden" id = "add--music">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="page-header">
+          <h1>Add a Song</h1>
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Song:</span>
+          <input type="text" class="form-control" id="song-name" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Artist:</span>
+          <input type="text" class="form-control" id="artist-name" aria-describedby="sizing-addon1">
+        </div> 
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Album:</span>
+          <input type="text" class="form-control" id="album-name" aria-describedby="sizing-addon1">
+        </div>
+        <button type="button" id="add--btn" class="btn btn-default btn-lg ">Add Song <span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
+      </div>
+    </div> <!-- end of row -->
 
 	</div> <!-- end of wrapper -->
 
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="songs.js"></script>
   <script src="add.js"></script>
 
