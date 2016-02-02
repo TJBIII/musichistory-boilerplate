@@ -8,11 +8,17 @@ var linkAdd = document.getElementById('link--add');
 //reference to button in dom
 var addBtnEl = document.getElementById('add--btn');
 
+
+
 linkView.addEventListener('click', function() {
   addEl.classList.remove("visible");
   addEl.classList.add("hidden");
   viewEl.classList.add("visible");
   viewEl.classList.remove("hidden");
+
+  //change navbar active class
+  linkAdd.parentElement.classList.remove("active");
+  linkView.parentElement.classList.add("active");
 });
 
 
@@ -21,6 +27,11 @@ linkAdd.addEventListener('click', function() {
   viewEl.classList.add("hidden");
   addEl.classList.add("visible");
   addEl.classList.remove("hidden");
+
+  //change navbar active class
+  linkView.parentElement.classList.remove("active");
+  linkAdd.parentElement.classList.add("active");
+
 });
 
 
