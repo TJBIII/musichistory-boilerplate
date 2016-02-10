@@ -42,7 +42,7 @@ var removeClassArr;
 
 function populatePage(){
   var songsData = JSON.parse(songsRequest.responseText).songs;
-  console.log("songsData", songsData);
+  //console.log("songsData", songsData);
 
   songsData.forEach(function(currentSong){
     songHTML = "";
@@ -61,16 +61,19 @@ function populatePage(){
     songHTML += `</div>`;
 
     songsEl.innerHTML += songHTML;
+  });
 
-    })
+  enableRemoveButtons();
+}
 
+function enableRemoveButtons() {
     removeClassArr = document.getElementsByClassName("remove");
     for (var i = 0; i < removeClassArr.length; i++){
       removeClassArr[i].addEventListener("click", function(event) {
         //console.log("clicked");
         removeRow(event);
       });
-    }
+  }
 }
 
 
