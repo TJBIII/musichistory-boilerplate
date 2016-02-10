@@ -38,6 +38,7 @@ var artist;
 var album;
 
 var songHTML;
+var removeClassArr;
 
 function populatePage(){
   var songsData = JSON.parse(songsRequest.responseText).songs;
@@ -50,12 +51,31 @@ function populatePage(){
     artist = currentSong.artist;
     album = currentSong.album;
 
-    songHTML += `<div class="song"><header>${title}</header>`;
-    songHTML += `<p>by ${artist} on the album ${album}</p>`;
+    songHTML += `<div class="row">`;
+    songHTML +=   `<div class="col-md-8 song"><header>${title}</header>`;
+    songHTML +=     `<p>by ${artist} on the album ${album}</p>`;
+    songHTML +=   `</div>`;
+    songHTML +=   `<div class="col-md-4">`;
+    songHTML +=     `<button class="remove btn btn-default">Remove</button>`;
+    songHTML +=   `</div>`;
+    songHTML += `</div>`;
 
     songsEl.innerHTML += songHTML;
-  });
 
+    })
+
+    removeClassArr = document.getElementsByClassName("remove");
+    for (var i = 0; i < removeClassArr.length; i++){
+      removeClassArr[i].addEventListener("click", function(event) {
+        console.log("clicked");
+        removeRow(event);
+      });
+    }
+}
+
+
+function removeRow(event){
+  console.log("event.target", event);
 
 }
 
