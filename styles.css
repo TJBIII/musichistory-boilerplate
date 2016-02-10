@@ -14,6 +14,9 @@ body {
 	margin: 15px 0;
 }
 
+.song {
+	margin: 20px;
+}
 .song header {
 	font-size: 1.2em;
 }
