@@ -1,0 +1,29 @@
+{
+  "songs": [
+  {
+    "title": "Hustlin'",
+    "artist": "Rick Ross",
+    "album": "Port of Miami"
+  },
+  {
+    "title": "Doomsday",
+    "artist": "MF DOOM",
+    "album": "Operation: DOOMSDAY"
+  },
+  {
+    "title": "Feel Me Flow",
+    "artist": "Naughty By Nature",
+    "album": "Poverty's Paradise"
+  },
+  {
+    "title": "Pacifics",
+    "artist": "Digable Planets",
+    "album": "Reachin'"
+  },
+  {
+    "title": "Compton",
+    "artist": "Kendrick Lamar",
+    "album": "Good Kid m.A.A.d City"
+  }
+  ]
+}

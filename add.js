@@ -58,9 +58,20 @@ var songAdditionHTML;
 
 function addSong(song, artist, album) {
 
-  songAdditionHTML = `<div class="song fade-in one"><header>${song}</header><p>by ${artist} on the album ${album}</p>`;
+  songAdditionHTML = "";
+  songAdditionHTML += `<div class="row">`;
+  songAdditionHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
+  songAdditionHTML +=     `<p>by ${artist} on the album ${album}</p>`;
+  songAdditionHTML +=   `</div>`;
+  songAdditionHTML +=   `<div class="col-md-4">`;
+  songAdditionHTML +=     `<button class="remove btn btn-default">Remove</button>`;
+  songAdditionHTML +=   `</div>`;
+  songAdditionHTML += `</div>`;
+  console.log("songAdditionHTML", songAdditionHTML);
 
   document.getElementById('songs').innerHTML += songAdditionHTML;
+
+  enableRemoveButtons();
 
   songEl.value = "";
   artistEl.value = "";
