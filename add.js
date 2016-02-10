@@ -35,6 +35,10 @@ linkAdd.addEventListener('click', function() {
 });
 
 
+
+
+
+
 var songTitle;
 var artistTitle;
 var AlbumTitle;
@@ -52,26 +56,32 @@ addBtnEl.addEventListener('click', function() {
   addSong(songTitle, artistTitle, albumTitle);
 });
 
-
 //build up new song HTMl and add to innerHTML of main--content area
-var songAdditionHTML;
+var addSongHTML;
+var addSongElem;
 
 function addSong(song, artist, album) {
+  addSongHTML = "";
 
-  songAdditionHTML = "";
-  songAdditionHTML += `<div class="row">`;
-  songAdditionHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
-  songAdditionHTML +=     `<p>by ${artist} on the album ${album}</p>`;
-  songAdditionHTML +=   `</div>`;
-  songAdditionHTML +=   `<div class="col-md-4">`;
-  songAdditionHTML +=     `<button class="remove btn btn-default">Remove</button>`;
-  songAdditionHTML +=   `</div>`;
-  songAdditionHTML += `</div>`;
-  console.log("songAdditionHTML", songAdditionHTML);
+ //create node to append so that eventlisteners are not lost
+  addSongElem = document.createElement("div");
+  addSongElem.className = "row";
 
-  document.getElementById('songs').innerHTML += songAdditionHTML;
+  addSongHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
+  addSongHTML +=     `<p>by ${artist} on the album ${album}</p>`;
+  addSongHTML +=   `</div>`;
+  addSongHTML +=   `<div class="col-md-4">`;
+  addSongHTML +=     `<button class="remove btn btn-default">Remove</button>`;
+  addSongHTML +=   `</div>`;
 
-  enableRemoveButtons();
+  addSongElem.innerHTML = addSongHTML;
+  songsEl = document.getElementById("songs");
+  songsEl.appendChild(addSongElem);
+
+  var removeClassArr = document.getElementsByClassName("remove");
+  removeClassArr[removeClassArr.length - 1].addEventListener("click", function(event) {
+    removeRow(event);
+  });
 
   songEl.value = "";
   artistEl.value = "";
