@@ -67,7 +67,7 @@ function populatePage(){
     removeClassArr = document.getElementsByClassName("remove");
     for (var i = 0; i < removeClassArr.length; i++){
       removeClassArr[i].addEventListener("click", function(event) {
-        console.log("clicked");
+        //console.log("clicked");
         removeRow(event);
       });
     }
@@ -75,7 +75,8 @@ function populatePage(){
 
 
 function removeRow(event){
-  console.log("event.target", event);
-
+  //console.log("event.target", event.target.parentNode.parentNode);
+  var row = event.target.parentNode.parentNode;
+  row.remove();
 }
 
