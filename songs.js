@@ -25,33 +25,33 @@ function populatePage(){
     artist = currentSong.artist;
     album = currentSong.album;
 
-    //create node to append so that eventlisteners are not lost
-    songElem = document.createElement("div");
-    songElem.className = "row";
 
+    songHTML += `<div class="row">`;
     songHTML +=   `<div class="col-md-8 song"><header>${title}</header>`;
     songHTML +=     `<p>by ${artist} on the album ${album}</p>`;
     songHTML +=   `</div>`;
     songHTML +=   `<div class="col-md-4">`;
     songHTML +=     `<button class="remove btn btn-default">Remove</button>`;
     songHTML +=   `</div>`;
+    songHTML += `</div>`;
 
-    songElem.innerHTML = songHTML;
-    songsEl.appendChild(songElem);
+    songsEl.innerHTML += songHTML;
 
-    //add eventlistener to remove button just created
-    removeClassArr = document.getElementsByClassName("remove");
-    removeClassArr[removeClassArr.length - 1].addEventListener("click", function(event) {
-      removeRow(event);
-    })
+  });
 
+  //add event handler to handle remove button clicks
+  songsEl.addEventListener("click", function(event) {
+    if (event.target.className.indexOf('remove') >= 0){
+      // console.log("event.target", event.target);
+      removeRow(event.target);
+    }
   });
 }
 
 
-function removeRow(event){
-  //console.log("event.target", event.target.parentNode.parentNode);
-  var row = event.target.parentNode.parentNode;
+function removeRow(target){
+  // console.log("removeRow", target);
+  var row = target.parentNode.parentNode;
   row.remove();
 }
 
@@ -84,25 +84,16 @@ function addMore() {
     artist = currentSong.artist;
     album = currentSong.album;
 
-    //create node to append so that eventlisteners are not lost
-    songElem = document.createElement("div");
-    songElem.className = "row";
-
+    songHTML += `<div class="row">`;
     songHTML +=   `<div class="col-md-8 song"><header>${title}</header>`;
     songHTML +=     `<p>by ${artist} on the album ${album}</p>`;
     songHTML +=   `</div>`;
     songHTML +=   `<div class="col-md-4">`;
     songHTML +=     `<button class="remove btn btn-default">Remove</button>`;
     songHTML +=   `</div>`;
+    songHTML += `</div>`;
 
-    songElem.innerHTML = songHTML;
-    songsEl.appendChild(songElem);
-
-    //add eventlistener to remove button just created
-    removeClassArr = document.getElementsByClassName("remove");
-    removeClassArr[removeClassArr.length - 1].addEventListener("click", function(event) {
-      removeRow(event);
-    })
+    songsEl.innerHTML += songHTML;
 
   });
 }

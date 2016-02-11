@@ -63,25 +63,18 @@ var addSongElem;
 function addSong(song, artist, album) {
   addSongHTML = "";
 
- //create node to append so that eventlisteners are not lost
-  addSongElem = document.createElement("div");
-  addSongElem.className = "row";
-
+  addSongHTML += `<div class="row">`;
   addSongHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
   addSongHTML +=     `<p>by ${artist} on the album ${album}</p>`;
   addSongHTML +=   `</div>`;
   addSongHTML +=   `<div class="col-md-4">`;
   addSongHTML +=     `<button class="remove btn btn-default">Remove</button>`;
   addSongHTML +=   `</div>`;
+  addSongHTML += `</div>`;
 
-  addSongElem.innerHTML = addSongHTML;
   songsEl = document.getElementById("songs");
-  songsEl.appendChild(addSongElem);
+  songsEl.innerHTML += addSongHTML;
 
-  var removeClassArr = document.getElementsByClassName("remove");
-  removeClassArr[removeClassArr.length - 1].addEventListener("click", function(event) {
-    removeRow(event);
-  });
 
   songEl.value = "";
   artistEl.value = "";
