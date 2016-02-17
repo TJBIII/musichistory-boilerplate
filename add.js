@@ -88,7 +88,6 @@ addBtnEl.click(function() {
 
 
 
-
 //build up new song HTMl and add to innerHTML of main--content area
 var addSongHTML;
 var addSongElem;
