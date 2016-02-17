@@ -63,7 +63,7 @@ var addSongElem;
 function addSong(song, artist, album) {
   addSongHTML = "";
 
-  addSongHTML += `<div class="row">`;
+  addSongHTML += `<div class="row song">`;
   addSongHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
   addSongHTML +=     `<p>by ${artist} on the album ${album}</p>`;
   addSongHTML +=   `</div>`;
