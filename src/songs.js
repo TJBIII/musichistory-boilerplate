@@ -1,13 +1,8 @@
-// var songsEl = document.getElementById('songs');
-// var moreBtnEl = document.getElementById('more');
+"use strict";
+
 var songsEl = $('#songs');
 var moreBtnEl = $('#more');
 
-
-// var songsRequest = new XMLHttpRequest();
-// songsRequest.addEventListener("load", populatePage);
-// songsRequest.open("GET", "songs.json");
-// songsRequest.send();
 $.ajax({
     url:"songs.json"
   }).done(populatePage);
@@ -43,28 +38,14 @@ function populatePage(songsList){
 
   });
 
-  //add event handler to handle remove button clicks
-  // songsEl.addEventListener("click", function(event) {
-  //   if (event.target.className.indexOf('remove') >= 0){
-  //     // console.log("event.target", event.target);
-  //     removeRow(event.target);
-  //   }
-  // });
-
 }
 
   //add event handler to handle remove button clicks
   songsEl.on('click', 'button[class^="remove"]', function(event){
-    console.log("this", $(this));
+    // console.log("this", $(this));
     $(this).parents('.song').remove();
   })
 
-// moreBtnEl.addEventListener("click", function() {
-//   //end of songs available so disable button
-//   moreBtnEl.disabled = "true";
-//   loadMore();
-
-// });
 
 moreBtnEl.click(function(){
   console.log("moreBtnEl", moreBtnEl);
@@ -74,14 +55,6 @@ moreBtnEl.click(function(){
   moreBtnEl[0].disabled = true;
 })
 
-// var moreSongsRequest;
-
-// function loadMore() {
-//   moreSongsRequest = new XMLHttpRequest();
-//   moreSongsRequest.addEventListener("load", addMore);
-//   moreSongsRequest.open("GET", "moreSongs.json");
-//   moreSongsRequest.send();
-// }
 
 function addMore(songsList) {
   //var songsData = JSON.parse(moreSongsRequest.responseText).songs;
