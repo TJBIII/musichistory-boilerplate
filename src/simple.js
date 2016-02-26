@@ -2,6 +2,8 @@
 
 
 const load = require("./load");
+const filter = require("./filtering");
+const views = require("./views");
 
 // console.log("load", load);
 
@@ -40,6 +42,14 @@ moreBtnEl.click(function(){
   $.ajax({
     url:"src/moreSongs.json"
   }).done(populatePage);
-  
+
   moreBtnEl[0].disabled = true;
-})
+});
+
+
+//references to navigation menu items in DOM
+let linkView = views.linkView;
+let linkAdd = views.linkAdd;
+//handle the two different app views
+linkView.click(views.showView);
+linkAdd.click(views.showAdd);

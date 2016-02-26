@@ -1,5 +1,20 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
+//One module is responsible for making the filtering form work. Therefore, it will need to use methods from the previous module.
+
+let load = require('./load');
+
+
+function filter () {
+
+  let songs = load.getSongs();
+
+}
+
+
+module.exports = filter;
+},{"./load":2}],2:[function(require,module,exports){
+"use strict";
 
 // One module is responsible for loading songs from a JSON file and storing them in an array. This module should expose one method for getting the entire list of songs, and one method for adding a song to the array.
 
@@ -33,11 +48,13 @@ function addSong(song, artist, album) {
 // module.exports = {getSongs, addSong, songsArr};
 exports.getSongs = getSongs;
 exports.addSong = addSong;
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 "use strict";
 
 
 const load = require("./load");
+const filter = require("./filtering");
+const views = require("./views");
 
 // console.log("load", load);
 
@@ -76,11 +93,57 @@ moreBtnEl.click(function(){
   $.ajax({
     url:"src/moreSongs.json"
   }).done(populatePage);
-  
-  moreBtnEl[0].disabled = true;
-})
 
-},{"./load":1}]},{},[2])
+  moreBtnEl[0].disabled = true;
+});
+
+
+//references to navigation menu items in DOM
+let linkView = views.linkView;
+let linkAdd = views.linkAdd;
+//handle the two different app views
+linkView.click(views.showView);
+linkAdd.click(views.showAdd);
+
+},{"./filtering":1,"./load":2,"./views":4}],4:[function(require,module,exports){
+"use srict";
+
+// One module is responsible for showing the two views of the app (song list and song form).
+
+var addEl = $('#add--music');
+var viewEl = $('#list--music');
+
+//references to navigation menu items in DOM
+var linkView = $('#link--view');
+var linkAdd = $('#link--add');
+
+
+function showView () {
+  addEl.removeClass('visible');
+  addEl.addClass('hidden');
+  viewEl.addClass('visible');
+  viewEl.removeClass('hidden');
+
+  linkAdd.removeClass('active');
+  linkView.addClass('active');
+}
+
+function showAdd () {
+  viewEl.removeClass('visible');
+  viewEl.addClass('hidden');
+  addEl.addClass('visible');
+  addEl.removeClass('hidden');
+
+  linkView.removeClass('active');
+  linkAdd.addClass('active');
+}
+
+exports.showView = showView;
+exports.showAdd = showAdd;
+exports.linkView = linkView;
+exports.linkAdd = linkAdd;
+
+},{}]},{},[3])
 
 
 //# sourceMappingURL=bundle.js.map
