@@ -1,8 +1,8 @@
 "use strict";
-
 // One module is responsible for loading songs from a JSON file and storing them in an array. This module should expose one method for getting the entire list of songs, and one method for adding a song to the array.
 
 const songsArr = [];
+
 const songsEl = $("#songs");
 let addSongHTML;
 let addSongElem;

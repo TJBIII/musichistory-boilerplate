@@ -5,9 +5,13 @@ let load = require('./load');
 
 
 function filter () {
+  let filterArtist = $('#artist');
+  let filterAlbum = $('#album').val()
+  console.log("filterArtist", filterArtist[0]);
 
   let songs = load.getSongs();
 
+  console.log("currently filtering");
 }
 
 

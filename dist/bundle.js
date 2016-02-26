@@ -6,19 +6,23 @@ let load = require('./load');
 
 
 function filter () {
+  let filterArtist = $('#artist');
+  let filterAlbum = $('#album').val()
+  console.log("filterArtist", filterArtist[0]);
 
   let songs = load.getSongs();
 
+  console.log("currently filtering");
 }
 
 
 module.exports = filter;
 },{"./load":2}],2:[function(require,module,exports){
 "use strict";
-
 // One module is responsible for loading songs from a JSON file and storing them in an array. This module should expose one method for getting the entire list of songs, and one method for adding a song to the array.
 
 const songsArr = [];
+
 const songsEl = $("#songs");
 let addSongHTML;
 let addSongElem;
@@ -53,7 +57,7 @@ exports.addSong = addSong;
 
 
 const load = require("./load");
-const filter = require("./filtering");
+const filter= require("./filtering");
 const views = require("./views");
 
 // console.log("load", load);
@@ -62,8 +66,6 @@ const views = require("./views");
 $.ajax({
     url: "src/songs.json"
   }).done(populatePage);
-
-
 
 
 let title;
@@ -105,8 +107,38 @@ let linkAdd = views.linkAdd;
 linkView.click(views.showView);
 linkAdd.click(views.showAdd);
 
+
+
+var addBtnEl = $('#add--btn');
+let songEl, artistEl, albumEl,
+    songTitle, artistTitle, albumTitle;
+//Add song to list view when button is clicked
+addBtnEl.click(function() {
+  songEl = $('#song-name');
+  artistEl = $('#artist-name');
+  albumEl = $('#album-name');
+
+  songTitle = songEl.val();
+  artistTitle = artistEl.val();
+  albumTitle = albumEl.val();
+
+  load.addSong(songTitle, artistTitle, albumTitle);
+
+  songEl.val("");
+  artistEl.val("");
+  albumEl.val("");
+
+  linkView.click();
+})
+
+
+//handle filtering
+let filterBtn = $('#filter--btn');
+filterBtn.click(filter);
+
+
 },{"./filtering":1,"./load":2,"./views":4}],4:[function(require,module,exports){
-"use srict";
+"use strict";
 
 // One module is responsible for showing the two views of the app (song list and song form).
 

@@ -40,11 +40,11 @@ function populatePage(songsList){
 
 }
 
-  //add event handler to handle remove button clicks
-  songsEl.on('click', 'button[class^="remove"]', function(event){
-    // console.log("this", $(this));
-    $(this).parents('.song').remove();
-  })
+//add event handler to handle remove button clicks
+songsEl.on('click', 'button[class^="remove"]', function(event){
+  // console.log("this", $(this));
+  $(this).parents('.song').remove();
+});
 
 
 moreBtnEl.click(function(){

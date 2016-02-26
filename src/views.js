@@ -1,4 +1,4 @@
-"use srict";
+"use strict";
 
 // One module is responsible for showing the two views of the app (song list and song form).
 
