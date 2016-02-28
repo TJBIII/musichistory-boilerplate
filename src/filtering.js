@@ -5,13 +5,31 @@ let load = require('./load');
 
 
 function filter () {
-  let filterArtist = $('#artist');
-  let filterAlbum = $('#album').val()
-  console.log("filterArtist", filterArtist[0]);
+  let filterArtist = $('#artist-input').val();
+  let filterAlbum = $('#album-input').val();
+  console.log("filterArtist", filterArtist);
+  console.log("filterAlbum", filterAlbum);
 
   let songs = load.getSongs();
+  console.log("songs", songs);
 
-  console.log("currently filtering");
+  //filter by artist
+  if (filterArtist) {
+    songs = songs.filter((songObj) => {
+      return songObj.artist === filterArtist;
+    });
+  }
+
+  //filter by album 
+  if (filterAlbum) {
+    songs = songs.filter((songObj) => {
+      return songObj.album === filterAlbum;
+    });
+  }
+
+  console.log("songs after filtering", songs);
+
+  
 }
 
 
