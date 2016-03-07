@@ -81,3 +81,9 @@ addBtnEl.click(function() {
 let filterBtn = $('#filter--btn');
 filterBtn.click(filter);
 
+let songsEl = $('#songs')
+//add event handler to handle remove button clicks
+songsEl.on('click', 'button[class^="remove"]', function(event){
+  // console.log("this", $(this));
+  $(this).parents('.song').remove();
+});

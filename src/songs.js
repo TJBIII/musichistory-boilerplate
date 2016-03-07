@@ -42,6 +42,7 @@ function populatePage(songsList){
 
 //add event handler to handle remove button clicks
 songsEl.on('click', 'button[class^="remove"]', function(event){
+  console.log("CLICKED REMOVE BUTTON");
   console.log("this", $(this));
   $(this).parents('.song').remove();
 });

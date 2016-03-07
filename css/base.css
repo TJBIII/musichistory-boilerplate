@@ -1,2 +1,23 @@
+body {
+  font-size: 1.8em; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
+
+.input-group {
+  margin: 15px 0; }
+
+.song {
+  margin-bottom: 25px; }
+
+.song header {
+  font-size: 1.2em; }
+
+.filter--item {
+  margin: 5% 2%; }
+
 .nav {
   background-color: #333; }
