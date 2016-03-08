@@ -22,7 +22,7 @@ var b = watchify(browserify(opts));
 // add transformations here
 // i.e. b.transform(coffeeify);
 
-gulp.task('default', ['styles'], bundle); // so you can run `gulp js` to build the file
+gulp.task('default', ['watch'], bundle); // so you can run `gulp js` to build the file
 b.on('update', bundle); // on any dep update, runs the bundler
 b.on('log', gutil.log); // output build logs to terminal
 
@@ -45,4 +45,10 @@ gulp.task('styles', function() {
     gulp.src('sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./css/'));
+});
+
+
+gulp.task('watch', function() {
+  gulp.watch('./javascripts/**/*.js', ['lint']);
+  gulp.watch('./sass/**/*.scss', ['styles']);
 });

@@ -5,7 +5,6 @@ const load = require("./load");
 const filter= require("./filtering");
 const views = require("./views");
 
-// console.log("load", load);
 
 //make ajax call for inital group of songs
 $.ajax({

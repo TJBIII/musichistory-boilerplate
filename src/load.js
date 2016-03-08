@@ -12,6 +12,10 @@ function getSongs () {
   return songsArr;
 }
 
+function setSongs () {
+  
+}
+
 function addSong(song, artist, album) {
   addSongHTML = "";
 
