@@ -13,7 +13,7 @@ function getSongs () {
 }
 
 function setSongs () {
-  
+
 }
 
 function addSong(song, artist, album) {
@@ -30,9 +30,47 @@ function addSong(song, artist, album) {
 
   songsEl.append(addSongHTML);
   songsArr.push({song, artist, album});
+
+
   // console.log(songsArr)
+}
+
+
+function updateDatabase(title, artist, album) {
+  let newSong = {title, artist, album};
+  newSong = JSON.stringify(newSong);
+
+  $.ajax({
+    url: 'https://amber-fire-2440.firebaseio.com/songs.json',
+    type: 'POST',
+    data: newSong
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  
+}
+
+
+function deleteFromDatabase(name) {
+  $.ajax({
+    url: `https://amber-fire-2440.firebaseio.com/songs/${name}.json`,
+    method: 'DELETE'
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  });
+  
 }
 
 // module.exports = {getSongs, addSong, songsArr};
 exports.getSongs = getSongs;
 exports.addSong = addSong;
+exports.updateDatabase = updateDatabase;
+exports.deleteFromDatabase = deleteFromDatabase;

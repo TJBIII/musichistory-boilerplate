@@ -8,7 +8,8 @@ const views = require("./views");
 
 //make ajax call for inital group of songs
 $.ajax({
-    url: "src/songs.json"
+    url: "https://amber-fire-2440.firebaseio.com/songs/.json",
+    method: "GET"
   }).done(populatePage);
 
 
@@ -20,14 +21,26 @@ function populatePage(songsList){
   let songsData = songsList.songs;
   //console.log("songsData", songsData);
 
-  songsData.forEach(function(currentSong){
 
+  //new way using firebase data
+  for (let song in songsList){
+    let currentSong = songsList[song];
     title = currentSong.title;
     artist = currentSong.artist;
     album = currentSong.album;
 
-    load.addSong(title, artist, album);
-  });
+    load.addSong(title, artist, album); 
+  }
+
+  // //old way using local storage
+  // songsData.forEach(function(currentSong){
+
+  //   title = currentSong.title;
+  //   artist = currentSong.artist;
+  //   album = currentSong.album;
+
+  //   load.addSong(title, artist, album);
+  // });
 }
 
 
@@ -68,6 +81,9 @@ addBtnEl.click(function() {
 
   load.addSong(songTitle, artistTitle, albumTitle);
 
+  //post new song to database
+  load.updateDatabase(songTitle, artistTitle, albumTitle);
+
   songEl.val("");
   artistEl.val("");
   albumEl.val("");
@@ -80,9 +96,15 @@ addBtnEl.click(function() {
 let filterBtn = $('#filter--btn');
 filterBtn.click(filter);
 
+
+
+
 let songsEl = $('#songs')
 //add event handler to handle remove button clicks
 songsEl.on('click', 'button[class^="remove"]', function(event){
-  // console.log("this", $(this));
+  console.log("this", $(this));
+  let songID = $(this).id;
   $(this).parents('.song').remove();
+  load.deleteFromDatabase(songID);
+
 });

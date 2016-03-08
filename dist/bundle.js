@@ -50,6 +50,10 @@ function getSongs () {
   return songsArr;
 }
 
+function setSongs () {
+
+}
+
 function addSong(song, artist, album) {
   addSongHTML = "";
 
@@ -64,12 +68,50 @@ function addSong(song, artist, album) {
 
   songsEl.append(addSongHTML);
   songsArr.push({song, artist, album});
+
+
   // console.log(songsArr)
+}
+
+
+function updateDatabase(title, artist, album) {
+  let newSong = {title, artist, album};
+  newSong = JSON.stringify(newSong);
+
+  $.ajax({
+    url: 'https://amber-fire-2440.firebaseio.com/songs.json',
+    type: 'POST',
+    data: newSong
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  
+}
+
+
+function deleteFromDatabase(name) {
+  $.ajax({
+    url: `https://amber-fire-2440.firebaseio.com/songs/${name}.json`,
+    method: 'DELETE'
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  });
+  
 }
 
 // module.exports = {getSongs, addSong, songsArr};
 exports.getSongs = getSongs;
 exports.addSong = addSong;
+exports.updateDatabase = updateDatabase;
+exports.deleteFromDatabase = deleteFromDatabase;
 },{}],3:[function(require,module,exports){
 "use strict";
 
@@ -78,11 +120,11 @@ const load = require("./load");
 const filter= require("./filtering");
 const views = require("./views");
 
-// console.log("load", load);
 
 //make ajax call for inital group of songs
 $.ajax({
-    url: "src/songs.json"
+    url: "https://amber-fire-2440.firebaseio.com/songs/.json",
+    method: "GET"
   }).done(populatePage);
 
 
@@ -94,14 +136,26 @@ function populatePage(songsList){
   let songsData = songsList.songs;
   //console.log("songsData", songsData);
 
-  songsData.forEach(function(currentSong){
 
+  //new way using firebase data
+  for (let song in songsList){
+    let currentSong = songsList[song];
     title = currentSong.title;
     artist = currentSong.artist;
     album = currentSong.album;
 
-    load.addSong(title, artist, album);
-  });
+    load.addSong(title, artist, album); 
+  }
+
+  // //old way using local storage
+  // songsData.forEach(function(currentSong){
+
+  //   title = currentSong.title;
+  //   artist = currentSong.artist;
+  //   album = currentSong.album;
+
+  //   load.addSong(title, artist, album);
+  // });
 }
 
 
@@ -142,6 +196,9 @@ addBtnEl.click(function() {
 
   load.addSong(songTitle, artistTitle, albumTitle);
 
+  //post new song to database
+  load.updateDatabase(songTitle, artistTitle, albumTitle);
+
   songEl.val("");
   artistEl.val("");
   albumEl.val("");
@@ -154,11 +211,17 @@ addBtnEl.click(function() {
 let filterBtn = $('#filter--btn');
 filterBtn.click(filter);
 
+
+
+
 let songsEl = $('#songs')
 //add event handler to handle remove button clicks
 songsEl.on('click', 'button[class^="remove"]', function(event){
-  // console.log("this", $(this));
+  console.log("this", $(this));
+  let songID = $(this).id;
   $(this).parents('.song').remove();
+  load.deleteFromDatabase(songID);
+
 });
 },{"./filtering":1,"./load":2,"./views":4}],4:[function(require,module,exports){
 "use strict";

@@ -1,29 +1,29 @@
 {
-  "songs": [
-  {
-    "title": "Juicy",
-    "artist": "Notorious BIG",
-    "album": "Ready to Die"
-  },
-  {
-    "title": "Good Morning",
-    "artist": "Kanye West",
-    "album": "Graduation"
-  },
-  {
-    "title": "Where I'm From",
-    "artist": "Jay Z",
-    "album": "In My Lifetime Vol. 1"
-  },
-  {
-    "title": "N.Y. State of Mind",
-    "artist": "Nas",
-    "album": "Illmatic"
-  },
-  {
-    "title": "Full Clip",
-    "artist": "Gang Starr",
-    "album": "Full Clip"
+  "songs": {
+    "juicy": {
+      "title": "Juicy",
+      "artist": "Notorious BIG",
+      "album": "Ready to Die"
+    },
+    "good": {
+      "title": "Good Morning",
+      "artist": "Kanye West",
+      "album": "Graduation"
+    },
+    "where": {
+      "title": "Where I'm From",
+      "artist": "Jay Z",
+      "album": "In My Lifetime Vol. 1"
+    },
+    "newyork": {
+      "title": "N.Y. State of Mind",
+      "artist": "Nas",
+      "album": "Illmatic"
+    },
+    "full": {
+      "title": "Full Clip",
+      "artist": "Gang Starr",
+      "album": "Full Clip"
+    }
   }
-  ]
 }
