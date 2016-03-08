@@ -16,6 +16,7 @@ $.ajax({
 let title;
 let artist;
 let album;
+let id;
 
 function populatePage(songsList){
   let songsData = songsList.songs;
@@ -25,11 +26,14 @@ function populatePage(songsList){
   //new way using firebase data
   for (let song in songsList){
     let currentSong = songsList[song];
+    currentSong.id = song;
+
     title = currentSong.title;
     artist = currentSong.artist;
     album = currentSong.album;
+    id = currentSong.id;
 
-    load.addSong(title, artist, album); 
+    load.addSong(title, artist, album, id ); 
   }
 
   // //old way using local storage
@@ -102,8 +106,9 @@ filterBtn.click(filter);
 let songsEl = $('#songs')
 //add event handler to handle remove button clicks
 songsEl.on('click', 'button[class^="remove"]', function(event){
-  console.log("this", $(this));
-  let songID = $(this).id;
+  // console.log($(this).parents(".song")[0].id);
+  let songID = $(this).parents(".song")[0].id;
+
   $(this).parents('.song').remove();
   load.deleteFromDatabase(songID);
 

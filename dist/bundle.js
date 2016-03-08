@@ -54,10 +54,10 @@ function setSongs () {
 
 }
 
-function addSong(song, artist, album) {
+function addSong(song, artist, album, id) {
   addSongHTML = "";
 
-  addSongHTML += `<div class="row song">`;
+  addSongHTML += `<div class="row song" id="${id}">`;
   addSongHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
   addSongHTML +=     `<p>by ${artist} on the album ${album}</p>`;
   addSongHTML +=   `</div>`;
@@ -67,8 +67,7 @@ function addSong(song, artist, album) {
   addSongHTML += `</div>`;
 
   songsEl.append(addSongHTML);
-  songsArr.push({song, artist, album});
-
+  songsArr.push({song, artist, album, id});
 
   // console.log(songsArr)
 }
@@ -131,6 +130,7 @@ $.ajax({
 let title;
 let artist;
 let album;
+let id;
 
 function populatePage(songsList){
   let songsData = songsList.songs;
@@ -140,11 +140,14 @@ function populatePage(songsList){
   //new way using firebase data
   for (let song in songsList){
     let currentSong = songsList[song];
+    currentSong.id = song;
+
     title = currentSong.title;
     artist = currentSong.artist;
     album = currentSong.album;
+    id = currentSong.id;
 
-    load.addSong(title, artist, album); 
+    load.addSong(title, artist, album, id ); 
   }
 
   // //old way using local storage
@@ -217,8 +220,9 @@ filterBtn.click(filter);
 let songsEl = $('#songs')
 //add event handler to handle remove button clicks
 songsEl.on('click', 'button[class^="remove"]', function(event){
-  console.log("this", $(this));
-  let songID = $(this).id;
+  // console.log($(this).parents(".song")[0].id);
+  let songID = $(this).parents(".song")[0].id;
+
   $(this).parents('.song').remove();
   load.deleteFromDatabase(songID);
 

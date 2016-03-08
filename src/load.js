@@ -16,10 +16,10 @@ function setSongs () {
 
 }
 
-function addSong(song, artist, album) {
+function addSong(song, artist, album, id) {
   addSongHTML = "";
 
-  addSongHTML += `<div class="row song">`;
+  addSongHTML += `<div class="row song" id="${id}">`;
   addSongHTML +=   `<div class="col-md-8 song"><header>${song}</header>`;
   addSongHTML +=     `<p>by ${artist} on the album ${album}</p>`;
   addSongHTML +=   `</div>`;
@@ -29,8 +29,7 @@ function addSong(song, artist, album) {
   addSongHTML += `</div>`;
 
   songsEl.append(addSongHTML);
-  songsArr.push({song, artist, album});
-
+  songsArr.push({song, artist, album, id});
 
   // console.log(songsArr)
 }
