@@ -7,11 +7,15 @@ const views = require("./views");
 
 
 //make ajax call for inital group of songs
-$.ajax({
-    url: "https://amber-fire-2440.firebaseio.com/songs/.json",
-    method: "GET"
-  }).done(populatePage);
 
+function getData () {
+  $.ajax({
+      url: "https://amber-fire-2440.firebaseio.com/songs/.json",
+      method: "GET"
+    }).done(populatePage);
+}
+
+getData();
 
 let title;
 let artist;
@@ -19,8 +23,8 @@ let album;
 let id;
 
 function populatePage(songsList){
-  let songsData = songsList.songs;
-  //console.log("songsData", songsData);
+  let songsData = songsList;
+  console.log("songsData", songsData);
 
 
   //new way using firebase data
@@ -87,6 +91,8 @@ addBtnEl.click(function() {
 
   //post new song to database
   load.updateDatabase(songTitle, artistTitle, albumTitle);
+  $('#songs').html('');
+  getData();
 
   songEl.val("");
   artistEl.val("");

@@ -55,6 +55,7 @@ function updateDatabase(title, artist, album) {
 
 
 function deleteFromDatabase(name) {
+
   $.ajax({
     url: `https://amber-fire-2440.firebaseio.com/songs/${name}.json`,
     method: 'DELETE'
