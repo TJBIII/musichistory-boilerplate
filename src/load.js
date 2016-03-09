@@ -17,7 +17,7 @@ function setSongs () {
 }
 
 function addSong(song, artist, album, id) {
-  console.log("adding song:", song);
+  // console.log("adding song:", song);
   addSongHTML = "";
 
   addSongHTML += `<div class="row song" id="${id}">`;

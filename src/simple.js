@@ -1,9 +1,103 @@
 "use strict";
-
-
 const load = require("./load");
 const filter= require("./filtering");
 const views = require("./views");
+
+
+
+let $registerBtnEl = $('#registerBtn'),
+    $loginBtnEl = $('#loginBtn'),
+    $inputEmailEl = $('#inputEmail'),
+    $inputPasswordEl = $('#inputPassword'),
+    $logoutEl = $('#logout');
+
+
+
+
+var ref = new Firebase("https://amber-fire-2440.firebaseio.com/");
+
+//register users
+$registerBtnEl.click(function () {
+  console.log("Registering New User");
+  let email = $inputEmailEl.val();
+  let password = $inputPasswordEl.val();
+
+  if (email && password){
+    ref.createUser({
+      email    : email,
+      password : password
+    }, function(error, userData) {
+      if (error) {
+        console.log("Error creating user:", error);
+      } else {
+        console.log("Successfully created user account with uid:", userData.uid);
+      }
+    });
+  } else {
+    console.log("You need to enter both an email and a password to register.");
+  }
+
+});
+
+
+//login user
+$loginBtnEl.click(function () {
+  console.log("Loggin In New User");
+  let email = $inputEmailEl.val();
+  let password = $inputPasswordEl.val();
+
+  if (email && password) {
+
+    ref.authWithPassword({
+      email    : email,
+      password : password
+    }, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        getData();
+        views.hideLogin();
+        views.showView();
+      }
+    });
+  } else {
+    console.log("You need to enter both an email and a password to login.");
+  }
+});
+
+
+
+
+
+
+ref.onAuth(function(authData) {
+  if (authData) {
+    console.log("Authenticated with uid:", authData.uid);
+
+  //if user is authenticated then enable the nav buttons by adding click event listeners
+  linkView.click(views.showView);
+  linkAdd.click(views.showAdd);
+
+  } else {
+    console.log("Client unauthenticated.")
+  }
+});
+
+
+
+
+$logoutEl.click(() => {
+  ref.unauth();
+  console.log("User logged out");
+  views.hideAll();
+  views.showLogin();
+})
+
+
+
+
+
 
 
 //make ajax call for inital group of songs
@@ -15,7 +109,6 @@ function getData () {
     }).done(populatePage);
 }
 
-getData();
 
 let title;
 let artist;
@@ -68,9 +161,8 @@ moreBtnEl.click(function(){
 //references to navigation menu items in DOM
 let linkView = views.linkView;
 let linkAdd = views.linkAdd;
-//handle the two different app views
-linkView.click(views.showView);
-linkAdd.click(views.showAdd);
+
+
 
 
 
@@ -87,7 +179,7 @@ addBtnEl.click(function() {
   artistTitle = artistEl.val();
   albumTitle = albumEl.val();
 
-  load.addSong(songTitle, artistTitle, albumTitle);
+  // load.addSong(songTitle, artistTitle, albumTitle);
 
   //post new song to database
   updateDatabase(songTitle, artistTitle, albumTitle);

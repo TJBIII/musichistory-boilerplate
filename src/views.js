@@ -4,11 +4,17 @@
 
 var addEl = $('#add--music');
 var viewEl = $('#list--music');
+var loginEl = $('#login');
 
 //references to navigation menu items in DOM
 var linkView = $('#link--view');
 var linkAdd = $('#link--add');
 
+
+function hideAll() {
+  addEl.hide();
+  viewEl.hide();
+}
 
 function showView () {
   addEl.removeClass('visible');
@@ -18,6 +24,14 @@ function showView () {
 
   linkAdd.removeClass('active');
   linkView.addClass('active');
+}
+
+function hideLogin() {
+  loginEl.hide();
+}
+
+function showLogin() {
+  loginEl.show();
 }
 
 function showAdd () {
@@ -34,3 +48,7 @@ exports.showView = showView;
 exports.showAdd = showAdd;
 exports.linkView = linkView;
 exports.linkAdd = linkAdd;
+exports.hideLogin = hideLogin;
+exports.showLogin = showLogin;
+exports.hideAll = hideAll;
+
