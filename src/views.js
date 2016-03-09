@@ -44,6 +44,7 @@ function showAdd () {
   linkAdd.addClass('active');
 }
 
+
 exports.showView = showView;
 exports.showAdd = showAdd;
 exports.linkView = linkView;
@@ -51,4 +52,3 @@ exports.linkAdd = linkAdd;
 exports.hideLogin = hideLogin;
 exports.showLogin = showLogin;
 exports.hideAll = hideAll;
-

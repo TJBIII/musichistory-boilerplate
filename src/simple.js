@@ -5,6 +5,7 @@ const views = require("./views");
 
 
 
+
 let $registerBtnEl = $('#registerBtn'),
     $loginBtnEl = $('#loginBtn'),
     $inputEmailEl = $('#inputEmail'),
@@ -12,6 +13,9 @@ let $registerBtnEl = $('#registerBtn'),
     $logoutEl = $('#logout');
 
 
+//references to navigation menu items in DOM
+let linkView = views.linkView;
+let linkAdd = views.linkAdd;
 
 
 var ref = new Firebase("https://amber-fire-2440.firebaseio.com/");
@@ -158,9 +162,6 @@ moreBtnEl.click(function(){
 });
 
 
-//references to navigation menu items in DOM
-let linkView = views.linkView;
-let linkAdd = views.linkAdd;
 
 
 
