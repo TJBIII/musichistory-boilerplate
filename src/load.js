@@ -17,6 +17,7 @@ function setSongs () {
 }
 
 function addSong(song, artist, album, id) {
+  console.log("adding song:", song);
   addSongHTML = "";
 
   addSongHTML += `<div class="row song" id="${id}">`;
@@ -35,24 +36,6 @@ function addSong(song, artist, album, id) {
 }
 
 
-function updateDatabase(title, artist, album) {
-  let newSong = {title, artist, album};
-  newSong = JSON.stringify(newSong);
-
-  $.ajax({
-    url: 'https://amber-fire-2440.firebaseio.com/songs.json',
-    type: 'POST',
-    data: newSong
-  })
-  .done(function() {
-    console.log("success");
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  
-}
-
 
 function deleteFromDatabase(name) {
 
@@ -70,7 +53,7 @@ function deleteFromDatabase(name) {
 }
 
 // module.exports = {getSongs, addSong, songsArr};
+// exports.updateDatabase = updateDatabase;
 exports.getSongs = getSongs;
 exports.addSong = addSong;
-exports.updateDatabase = updateDatabase;
 exports.deleteFromDatabase = deleteFromDatabase;

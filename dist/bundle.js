@@ -55,6 +55,7 @@ function setSongs () {
 }
 
 function addSong(song, artist, album, id) {
+  console.log("adding song:", song);
   addSongHTML = "";
 
   addSongHTML += `<div class="row song" id="${id}">`;
@@ -73,24 +74,6 @@ function addSong(song, artist, album, id) {
 }
 
 
-function updateDatabase(title, artist, album) {
-  let newSong = {title, artist, album};
-  newSong = JSON.stringify(newSong);
-
-  $.ajax({
-    url: 'https://amber-fire-2440.firebaseio.com/songs.json',
-    type: 'POST',
-    data: newSong
-  })
-  .done(function() {
-    console.log("success");
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  
-}
-
 
 function deleteFromDatabase(name) {
 
@@ -108,9 +91,9 @@ function deleteFromDatabase(name) {
 }
 
 // module.exports = {getSongs, addSong, songsArr};
+// exports.updateDatabase = updateDatabase;
 exports.getSongs = getSongs;
 exports.addSong = addSong;
-exports.updateDatabase = updateDatabase;
 exports.deleteFromDatabase = deleteFromDatabase;
 },{}],3:[function(require,module,exports){
 "use strict";
@@ -205,9 +188,9 @@ addBtnEl.click(function() {
   load.addSong(songTitle, artistTitle, albumTitle);
 
   //post new song to database
-  load.updateDatabase(songTitle, artistTitle, albumTitle);
-  $('#songs').html('');
-  getData();
+  updateDatabase(songTitle, artistTitle, albumTitle);
+  // $('#songs').html('');
+  // getData();
 
   songEl.val("");
   artistEl.val("");
@@ -234,6 +217,28 @@ songsEl.on('click', 'button[class^="remove"]', function(event){
   load.deleteFromDatabase(songID);
 
 });
+
+
+function updateDatabase(title, artist, album) {
+  let newSong = {title, artist, album};
+  newSong = JSON.stringify(newSong);
+
+  $.ajax({
+    url: 'https://amber-fire-2440.firebaseio.com/songs.json',
+    type: 'POST',
+    data: newSong
+  })
+  .done(function() {
+    console.log("success");
+    $('#songs').html('');
+    getData();
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  
+}
+
 },{"./filtering":1,"./load":2,"./views":4}],4:[function(require,module,exports){
 "use strict";
 

@@ -90,9 +90,9 @@ addBtnEl.click(function() {
   load.addSong(songTitle, artistTitle, albumTitle);
 
   //post new song to database
-  load.updateDatabase(songTitle, artistTitle, albumTitle);
-  $('#songs').html('');
-  getData();
+  updateDatabase(songTitle, artistTitle, albumTitle);
+  // $('#songs').html('');
+  // getData();
 
   songEl.val("");
   artistEl.val("");
@@ -119,3 +119,24 @@ songsEl.on('click', 'button[class^="remove"]', function(event){
   load.deleteFromDatabase(songID);
 
 });
+
+
+function updateDatabase(title, artist, album) {
+  let newSong = {title, artist, album};
+  newSong = JSON.stringify(newSong);
+
+  $.ajax({
+    url: 'https://amber-fire-2440.firebaseio.com/songs.json',
+    type: 'POST',
+    data: newSong
+  })
+  .done(function() {
+    console.log("success");
+    $('#songs').html('');
+    getData();
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  
+}
