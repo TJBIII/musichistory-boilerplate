@@ -1,0 +1,34 @@
+{
+  "songs": [
+    {
+      "id": 0,
+      "name": "Juicy",
+      "artist": "Notorious BIG",
+      "album": "Ready to Die"
+    },
+    {
+      "id": 1,
+      "name": "Good Morning",
+      "artist": "Kanye West",
+      "album": "Graduation"
+    },
+    {
+      "id": 2,
+      "name": "Where I'm From",
+      "artist": "Jay Z",
+      "album": "In My Lifetime Vol. 1"
+    },
+    {
+      "id": 3,
+      "name": "N.Y. State of Mind",
+      "artist": "Nas",
+      "album": "Illmatic"
+    },
+    {
+      "id": 4,
+      "name": "Full Clip",
+      "artist": "Gang Starr",
+      "album": "Full Clip"
+    }
+  ]
+}

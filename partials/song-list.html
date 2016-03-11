@@ -1,0 +1,70 @@
+<div id="list--music">
+      <div class="row">
+        <div class="page-header col-md-8 col-md-offset-2">
+          <h1>View Music</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-2">
+          <form action="#">
+            <div class="filter--item">
+            <label for="song-list">Song length:</label><br>
+              <input type="range" name="song-list">
+            </div>
+            <div class="filter--item">
+              <label for="repeatArtistSelect">Artist:</label><br>
+              <select name="repeatSelect" id="repeatArtistSelect" ng-model="selectedSearch.artist">
+                <option value="">All</option>
+                <option ng-repeat="song in songs" value="{{song.artist}}">{{song.artist}}</option>
+              </select>
+            </div>
+
+            <div class="filter--item">
+              <label for="album">Album:</label><br>
+              <select name="repeatSelect" id="repeatArtistSelect" ng-model="selectedSearch.album">
+                <option value="">All</option>
+                <option ng-repeat="song in songs" value="{{song.album}}">{{song.album}}</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="filter--item">
+                <label for="genre">Genre:</label><br>
+                <div class="col-md-6">
+                  <input type="checkbox" name="rock" value="Rock" />Rock </br>
+                  <input type="checkbox" name="jazz" value="Jazz" />Jazz </br>
+                    <input type="checkbox" name="blues" value="Rock" />Blues </br>
+                </div>
+                <div class="col-md-6">
+                  <input type="checkbox" name="hiphop" value="Rock" />Hip-Hop </br>
+                  <input type="checkbox" name="pop" value="Rock" />Pop</br>
+                  <input type="checkbox" name="classical" value="Rock" />Classical</br> 
+                </div>
+              </div>
+            </div> <!-- end of row -->
+
+          </form>   
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <section>
+            <div ng-repeat="song in songs | filter: selectedSearch">
+              <div class="row song id={{ song.id }}">
+                <div class="col-md-8 song">
+                  <a href="#/songs/{{ song.id }}">
+                    <header>{{ song.name }}</header>
+                    <p>by {{ song.artist }} on the album {{ album }}</p>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <button class="remove btn btn-default">Remove</button>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-default">
+              <a href="#/songs/new">Create New Song </a>
+            </button>
+          </section>
+          <button class="btn btn-default center-block" id="more">More</button>
+        </div> <!-- end of songs block -->
+      </div>  <!-- end of row -->
