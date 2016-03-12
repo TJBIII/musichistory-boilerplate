@@ -1,3 +1,5 @@
+"use strict";
+
 app.controller("SongCtrl", [
   "$scope",
   "$http",
@@ -9,15 +11,25 @@ app.controller("SongCtrl", [
     $scope.songs = "";
 
 
-    songStorage.then(
-        function (songArray) {
+    songStorage().then(
+        function (songsObject) {
           console.log("promise resolved with data");
-          $scope.songs = songArray;
-          // console.log("$scope.songs", $scope.songs);
+          // console.log("songsObject", songsObject);
+          $scope.songs = songsObject;
         },
         function (error) {
           console.log("There was an error", error);
         }
       );
+
+    $scope.removeSong = function (song) {
+      console.log("remove song", song);
+      let songIndex = $scope.songs.indexOf(song);
+      if (songIndex >= 0) {
+        $scope.songs.splice(songIndex, 1);
+      }
+    };
+
+
   }]
 );

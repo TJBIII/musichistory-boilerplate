@@ -1,20 +1,22 @@
-<div class="row hidden" id = "add--music">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="page-header">
-            <h1>Add a Song</h1>
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Song:</span>
-            <input type="text" class="form-control" ng-model="newSong.name" aria-describedby="sizing-addon1">
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Artist:</span>
-            <input type="text" class="form-control" ng-model="newSong.artist" aria-describedby="sizing-addon1">
-          </div> 
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Album:</span>
-            <input type="text" class="form-control" ng-model="newSong.album" aria-describedby="sizing-addon1">
-          </div>
-          <button type="button" id="add--btn" class="btn btn-default btn-lg ">Add Song <span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
-        </div>
-      </div>
+<div class="row" id = "add--music">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="page-header">
+      <h1>Add a Song</h1>
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1">Song:</span>
+      <input type="text" class="form-control" ng-model="newSong.name" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1">Artist:</span>
+      <input type="text" class="form-control" ng-model="newSong.artist" aria-describedby="sizing-addon1">
+    </div> 
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1">Album:</span>
+      <input type="text" class="form-control" ng-model="newSong.album" aria-describedby="sizing-addon1">
+    </div>
+    <a href="#/songs">
+      <button type="button" ng-click="addSong()" class="btn btn-default btn-lg ">Add Song <span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
+    </a>
+  </div>
+</div>

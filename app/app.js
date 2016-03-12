@@ -1,3 +1,5 @@
+"use strict";
+
 var app = angular.module("SongApp", ['ngRoute']);
 
 app.config(['$routeProvider',
@@ -15,7 +17,7 @@ app.config(['$routeProvider',
         templateUrl: 'partials/song-detail.html',
         controller: 'SongDetailCtrl'
       }).
-      when('/add/', {
+      when('/add', {
         templateUrl: 'partials/song-form.html',
         controller: 'SongAddCtrl'
       }).

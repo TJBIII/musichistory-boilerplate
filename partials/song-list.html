@@ -49,22 +49,21 @@
         <div class="col-md-6">
           <section>
             <div ng-repeat="song in songs | filter: selectedSearch">
+            <!-- <div ng-repeat="song in songs"> -->
+
               <div class="row song id={{ song.id }}">
                 <div class="col-md-8 song">
                   <a href="#/songs/{{ song.id }}">
                     <header>{{ song.name }}</header>
-                    <p>by {{ song.artist }} on the album {{ album }}</p>
+                    <p>by {{ song.artist }} on the album {{ song.album }}</p>
                   </a>
                 </div>
                 <div class="col-md-4">
-                  <button class="remove btn btn-default">Remove</button>
+                  <button ng-click="removeSong(song)" class="remove btn btn-default">Remove</button>
                 </div>
               </div>
             </div>
-            <button class="btn btn-default">
-              <a href="#/songs/new">Create New Song </a>
-            </button>
           </section>
-          <button class="btn btn-default center-block" id="more">More</button>
+          <button class="btn btn-default center-block">More</button>
         </div> <!-- end of songs block -->
       </div>  <!-- end of row -->
